@@ -3,269 +3,442 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PowerHouse Generator – Your Whole-Home Protection</title>
+  <title>PowerHouse Generator – Safe, Steadfast Protection 24/7</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #1b2d5e;
-      --green:  #5a9628;
-      --green-light: #6eb030;
-      --tan:    #e8e1d4;
-      --tan-dark: #d9cfc0;
-      --white:  #ffffff;
-      --text:   #1a1a1a;
-      --muted:  #555;
+      --navy:      #1b2d5e;
+      --navy-dark: #111e40;
+      --green:     #5a9628;
+      --green-mid: #4a8020;
+      --tan:       #e8e1d4;
+      --tan-mid:   #d4c9b8;
+      --tan-dark:  #b8aa96;
+      --cream:     #f5f0e8;
+      --white:     #ffffff;
+      --text:      #1a1a1a;
+      --muted:     #5a5a5a;
     }
 
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-family: Georgia, "Times New Roman", serif;
       color: var(--text);
-      background: var(--white);
-      line-height: 1.6;
+      background: var(--cream);
+      line-height: 1.65;
     }
 
-    /* ── NAV ── */
+    /* ─── NAV ─────────────────────────────────────────────── */
     nav {
       position: sticky; top: 0; z-index: 100;
       background: var(--navy);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem;
-      height: 64px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+      padding: 0 2.5rem; height: 62px;
     }
-    nav .logo {
-      display: flex; align-items: center; gap: .6rem;
-      text-decoration: none;
+    nav img.nav-logo { height: 34px; display: block; }
+    nav .nav-phone {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .85rem; font-weight: 600; letter-spacing: .04em;
+      color: rgba(255,255,255,.75); text-decoration: none;
     }
-    nav .logo svg { width: 36px; height: 36px; }
-    nav .logo span { color: var(--white); font-size: 1.1rem; font-weight: 700; letter-spacing: .02em; }
-    nav .logo span em { color: var(--green-light); font-style: normal; }
-    nav a.cta {
-      background: var(--green); color: var(--white);
-      padding: .45rem 1.1rem; border-radius: 6px;
-      font-weight: 600; font-size: .9rem; text-decoration: none;
-      transition: background .2s;
-    }
-    nav a.cta:hover { background: var(--green-light); }
+    nav .nav-phone:hover { color: #fff; }
 
-    /* ── HERO ── */
+    /* ─── HERO ────────────────────────────────────────────── */
     .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #273f80 100%);
-      color: var(--white);
-      padding: 90px 2rem 80px;
-      text-align: center;
-    }
-    .hero .badge {
-      display: inline-block;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: 999px;
-      font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
-      padding: .3rem 1rem; margin-bottom: 1.4rem; color: #a8c8ff;
-    }
-    .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      font-weight: 800; line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-    .hero h1 em { color: var(--green-light); font-style: normal; }
-    .hero p {
-      font-size: 1.15rem; color: rgba(255,255,255,.8);
-      max-width: 580px; margin: 0 auto 2.2rem;
-    }
-    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--green); color: var(--white);
-      padding: .75rem 1.8rem; border-radius: 8px;
-      font-weight: 700; font-size: 1rem; text-decoration: none;
-      transition: background .2s, transform .15s;
-    }
-    .btn-primary:hover { background: var(--green-light); transform: translateY(-1px); }
-    .btn-outline {
-      background: transparent; color: var(--white);
-      border: 2px solid rgba(255,255,255,.45);
-      padding: .75rem 1.8rem; border-radius: 8px;
-      font-weight: 600; font-size: 1rem; text-decoration: none;
-      transition: border-color .2s, background .2s;
-    }
-    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
-
-    /* ── BRAND STRIP ── */
-    .brands {
-      background: var(--tan);
-      padding: 1.6rem 2rem;
-      display: flex; align-items: center; justify-content: center;
-      gap: 2.4rem; flex-wrap: wrap;
-    }
-    .brands span { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-    .brand-pill {
-      background: var(--white);
-      border: 1px solid var(--tan-dark);
-      border-radius: 6px;
-      padding: .45rem 1.1rem;
-      font-size: .85rem; font-weight: 700; color: var(--navy);
-      letter-spacing: .03em;
-    }
-
-    /* ── SECTIONS ── */
-    section { padding: 80px 2rem; }
-    .container { max-width: 1040px; margin: 0 auto; }
-    .section-label {
-      font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--green); margin-bottom: .6rem;
-    }
-    h2 {
-      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
-      font-weight: 800; color: var(--navy); line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-    .lead { font-size: 1.1rem; color: var(--muted); max-width: 680px; }
-
-    /* ── COMMITMENT ── */
-    .commitment { background: var(--white); }
-    .commitment-inner {
+      background: var(--navy);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem; align-items: center;
+      min-height: 82vh;
     }
-    .commitment-text p { color: var(--muted); margin-bottom: .9rem; }
-    .commitment-text p strong { color: var(--navy); }
-    .commitment-card {
-      background: linear-gradient(145deg, var(--navy), #273f80);
-      color: var(--white);
-      border-radius: 16px;
-      padding: 2.4rem;
-      box-shadow: 0 20px 50px rgba(27,45,94,.25);
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 4rem 6rem 5rem;
     }
-    .commitment-card h3 { font-size: 1.5rem; margin-bottom: .8rem; }
-    .commitment-card p { color: rgba(255,255,255,.8); font-size: .97rem; line-height: 1.65; }
-    .commitment-card .divider { border: none; border-top: 1px solid rgba(255,255,255,.2); margin: 1.2rem 0; }
-    .commitment-card .tagline { font-size: 1rem; font-weight: 700; color: var(--green-light); }
-
-    /* ── SERVICES ── */
-    .services { background: var(--tan); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.6rem;
-      margin-top: 2.4rem;
+    .hero-eyebrow {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .7rem; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--green);
+      margin-bottom: 1.4rem;
     }
-    .service-card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,.07);
-      border-top: 4px solid transparent;
-      transition: transform .2s, box-shadow .2s;
+    .hero h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 400; color: var(--white);
+      line-height: 1.12; letter-spacing: -.01em;
+      margin-bottom: 1.6rem;
     }
-    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.12); }
-    .service-card.accent-green { border-top-color: var(--green); }
-    .service-card.accent-navy  { border-top-color: var(--navy); }
-    .service-card.accent-gold  { border-top-color: #c8922a; }
-    .service-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; margin-bottom: 1rem;
+    .hero h1 strong {
+      font-style: italic; font-weight: 400;
+      color: #a6c870;
     }
-    .icon-green { background: #eaf4e0; }
-    .icon-navy  { background: #e6eaf5; }
-    .icon-gold  { background: #fdf3e3; }
-    .service-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
-    .service-card p { color: var(--muted); font-size: .95rem; }
-
-    /* ── TIPS ── */
-    .tips { background: var(--white); }
-    .tips-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.4rem;
-      margin-top: 2.4rem;
-    }
-    .tip-card {
-      background: var(--tan);
-      border-radius: 12px;
-      padding: 1.6rem;
-      border-left: 4px solid var(--green);
-    }
-    .tip-card h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .45rem; }
-    .tip-card p { font-size: .92rem; color: var(--muted); }
-
-    /* ── STOP BANNER ── */
-    .stop-banner {
-      background: #fff5e6;
-      border: 2px solid #e8952a;
-      border-radius: 14px;
-      padding: 2rem 2.4rem;
-      display: flex; gap: 1.4rem; align-items: flex-start;
-      margin-top: 2.4rem;
-    }
-    .stop-icon { font-size: 2.2rem; flex-shrink: 0; }
-    .stop-banner h4 { font-size: 1rem; font-weight: 800; color: #b36a00; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .4rem; }
-    .stop-banner p { font-size: .95rem; color: #7a4a00; }
-
-    /* ── PARTNER ── */
-    .partner { background: var(--tan); }
-    .partner-inner {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 2.4rem;
-      display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;
-    }
-    .partner-logo { font-size: 2.2rem; }
-    .partner-text h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: .4rem; }
-    .partner-text p { color: var(--muted); font-size: .95rem; max-width: 580px; }
-    .partner-text a { color: var(--green); font-weight: 600; }
-
-    /* ── CTA / CONTACT ── */
-    .contact {
-      background: linear-gradient(135deg, var(--navy) 0%, #273f80 100%);
-      color: var(--white);
-      text-align: center;
-    }
-    .contact h2 { color: var(--white); }
-    .contact .lead { color: rgba(255,255,255,.75); margin: 0 auto 2.4rem; }
-    .contact-cards {
-      display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;
+    .hero-body {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: 1.05rem; color: rgba(255,255,255,.65);
+      max-width: 400px; line-height: 1.7;
       margin-bottom: 2.4rem;
     }
-    .contact-card {
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 12px;
-      padding: 1.2rem 1.8rem;
-      min-width: 200px;
+    .hero-phone {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: 1.5rem; font-weight: 300; letter-spacing: .03em;
+      color: var(--white); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.25);
+      padding-bottom: .2rem;
+      display: inline-block;
     }
-    .contact-card .label { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: .3rem; }
-    .contact-card .value { font-size: 1.1rem; font-weight: 700; color: var(--white); }
-    .contact-card a { color: var(--white); text-decoration: none; }
-    .contact-card a:hover { color: var(--green-light); }
-    .google-badge {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
-      border-radius: 999px; padding: .4rem 1.1rem;
-      font-size: .85rem; color: rgba(255,255,255,.8);
+    .hero-phone:hover { border-bottom-color: var(--white); }
+    .hero-right {
+      position: relative; overflow: hidden;
     }
-    .stars { color: #facc15; letter-spacing: .05em; }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .hero-right::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--navy) 0%, transparent 30%);
+    }
 
-    /* ── FOOTER ── */
-    footer {
-      background: #0f1e40;
-      color: rgba(255,255,255,.5);
-      text-align: center;
+    /* ─── BRAND LOGOS ─────────────────────────────────────── */
+    .brands {
+      background: var(--tan);
+      padding: 2.2rem 3rem;
+      display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;
+    }
+    .brands-label {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--tan-dark);
+      flex-shrink: 0; margin-right: .4rem;
+    }
+    .brand-logo {
+      height: 36px; object-fit: contain;
+      filter: saturate(0) opacity(.65);
+      transition: filter .2s;
+    }
+    .brand-logo:hover { filter: saturate(1) opacity(1); }
+    .brand-sep {
+      width: 1px; height: 28px;
+      background: var(--tan-dark); flex-shrink: 0;
+    }
+
+    /* ─── SECTION SHELL ───────────────────────────────────── */
+    .section { padding: 7rem 5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .eyebrow {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .68rem; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--green);
+      margin-bottom: .8rem; display: block;
+    }
+    h2 {
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      font-weight: 400; color: var(--navy);
+      line-height: 1.18; letter-spacing: -.01em;
+      margin-bottom: 1.2rem;
+    }
+    .body-text {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: 1rem; color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ─── COMMITMENT ──────────────────────────────────────── */
+    .commitment { background: var(--cream); }
+    .commitment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+    .commitment-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .commitment-photos img {
+      width: 100%; aspect-ratio: 1/1;
+      object-fit: cover; display: block;
+    }
+    .commitment-photos img:first-child {
+      grid-column: 1 / -1;
+      aspect-ratio: 16/9;
+    }
+    .commitment-text { padding-top: .5rem; }
+    .commitment-text p { margin-bottom: 1.2rem; }
+    .commitment-text p:last-child { margin-bottom: 0; }
+    .commitment-quote {
+      margin-top: 2rem;
       padding: 1.6rem 2rem;
-      font-size: .82rem;
+      border-left: 3px solid var(--green);
+      background: var(--tan);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.6;
     }
-    footer a { color: rgba(255,255,255,.6); text-decoration: none; }
-    footer a:hover { color: var(--white); }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 680px) {
-      .commitment-inner { grid-template-columns: 1fr; }
-      .commitment-card { order: -1; }
-      nav .logo span { display: none; }
+    /* ─── PROTECTION / SERVICES ───────────────────────────── */
+    .protection { background: var(--navy); }
+    .protection h2 { color: var(--white); }
+    .protection .eyebrow { color: #a6c870; }
+    .protection .section-intro {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: 1.1rem; color: rgba(255,255,255,.6);
+      max-width: 620px; line-height: 1.7; margin-bottom: 4rem;
+    }
+    .service-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,.1);
+      margin-bottom: 1px;
+    }
+    .service-row:last-child { margin-bottom: 0; }
+    .service-text {
+      padding: 3rem;
+      background: rgba(255,255,255,.05);
+    }
+    .service-text h3 {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .68rem; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--green);
+      margin-bottom: 1rem;
+    }
+    .service-text p {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .97rem; color: rgba(255,255,255,.7);
+      line-height: 1.75;
+    }
+    .service-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,.1);
+    }
+    .service-photos img {
+      width: 100%; aspect-ratio: 1/1;
+      object-fit: cover; display: block;
+    }
+
+    /* ─── SAFER HOME ──────────────────────────────────────── */
+    .safer { background: var(--navy); }
+    .safer-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .safer h3 {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .68rem; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--green);
+      margin-bottom: 1rem;
+    }
+    .safer h2 { color: var(--white); }
+    .safer p {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .97rem; color: rgba(255,255,255,.7);
+      line-height: 1.75; margin-bottom: 1rem;
+    }
+    .safer blockquote {
+      border-left: 2px solid var(--green);
+      padding-left: 1.2rem;
+      font-style: italic;
+      font-size: .93rem; color: rgba(255,255,255,.5);
+      line-height: 1.6; margin-top: 1.4rem;
+    }
+    .safer-photo { position: relative; }
+    .safer-photo img {
+      width: 100%; display: block;
+      aspect-ratio: 4/5; object-fit: cover;
+    }
+
+    /* ─── TIPS ────────────────────────────────────────────── */
+    .tips { background: var(--tan); }
+    .tips h2 { color: var(--navy); }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      border: 1px solid var(--tan-dark);
+    }
+    .tip {
+      padding: 2.4rem;
+      border-right: 1px solid var(--tan-dark);
+      border-bottom: 1px solid var(--tan-dark);
+    }
+    .tip:nth-child(2n) { border-right: none; }
+    .tip:nth-child(3), .tip:nth-child(4) { border-bottom: none; }
+    .tip-num {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--tan-dark);
+      margin-bottom: .7rem; display: block;
+    }
+    .tip h4 {
+      font-size: 1.15rem; font-weight: 700; color: var(--navy);
+      margin-bottom: .6rem; line-height: 1.3;
+    }
+    .tip p {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .93rem; color: var(--muted);
+      line-height: 1.7;
+    }
+    .stop-block {
+      margin-top: 2.4rem;
+      background: var(--cream);
+      border: 1px solid var(--tan-dark);
+      padding: 2.4rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.8rem; align-items: start;
+    }
+    .stop-hand {
+      font-size: 2.8rem; line-height: 1;
+    }
+    .stop-block h4 {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .68rem; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: #b36200;
+      margin-bottom: .5rem;
+    }
+    .stop-block p {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .95rem; color: var(--muted);
+      line-height: 1.7;
+    }
+    .stop-block a { color: #b36200; }
+
+    /* ─── INSTALLED / ABOUT ───────────────────────────────── */
+    .installed { background: var(--cream); }
+    .installed-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem; margin-top: 3rem;
+    }
+    .installed-grid img {
+      width: 100%; aspect-ratio: 1/1;
+      object-fit: cover; display: block;
+    }
+    .installed-grid img:first-child {
+      grid-column: 1 / 3;
+      aspect-ratio: 16/9;
+    }
+    .installed-info {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 1rem .5rem;
+    }
+    .installed-info p {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .92rem; color: var(--muted);
+      font-style: italic; line-height: 1.6;
+    }
+
+    /* ─── ODI PARTNER ─────────────────────────────────────── */
+    .partner { background: var(--tan); padding: 4rem 5rem; }
+    .partner-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem; align-items: center;
+    }
+    .partner h3 {
+      font-size: 1.4rem; font-weight: 400; color: var(--navy);
+      margin-bottom: .8rem;
+    }
+    .partner p {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .95rem; color: var(--muted); line-height: 1.75;
+    }
+    .partner a { color: var(--green); font-weight: 600; text-decoration: none; }
+    .partner a:hover { text-decoration: underline; }
+    .partner-aside {
+      text-align: right;
+      font-family: -apple-system, Helvetica, sans-serif;
+    }
+    .partner-aside .stat {
+      font-size: 3rem; font-weight: 300; color: var(--navy);
+      line-height: 1;
+    }
+    .partner-aside .stat-label {
+      font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--tan-dark); margin-top: .3rem;
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────────── */
+    .contact { background: var(--navy-dark); padding: 7rem 5rem; }
+    .contact-inner { max-width: 1100px; margin: 0 auto; }
+    .contact .eyebrow { color: #a6c870; }
+    .contact h2 { color: var(--white); margin-bottom: 3.5rem; }
+    .contact-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: rgba(255,255,255,.1);
+      margin-bottom: 3rem;
+    }
+    .contact-item {
+      background: var(--navy-dark);
+      padding: 2rem;
+    }
+    .contact-item .label {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .65rem; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: rgba(255,255,255,.35);
+      margin-bottom: .5rem;
+    }
+    .contact-item .value {
+      font-size: 1.1rem; color: var(--white);
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-weight: 400;
+    }
+    .contact-item a {
+      color: var(--white); text-decoration: none;
+    }
+    .contact-item a:hover { color: #a6c870; }
+    .google-line {
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .85rem; color: rgba(255,255,255,.4);
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .stars { color: #facc15; font-size: 1rem; letter-spacing: .05em; }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 1.5rem 5rem;
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: .78rem; color: rgba(255,255,255,.3);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: .5rem;
+    }
+    footer a { color: rgba(255,255,255,.4); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,.7); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .section { padding: 5rem 2rem; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 4rem 2rem; }
+      .hero-right { height: 50vw; }
+      .hero-right::after { background: linear-gradient(to bottom, var(--navy) 0%, transparent 40%); }
+      .commitment-grid, .service-row, .safer-inner,
+      .partner-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .installed-grid { grid-template-columns: 1fr 1fr; }
+      .installed-grid img:first-child { grid-column: 1 / -1; }
+      .contact-row { grid-template-columns: 1fr 1fr; }
+      .tips-grid { grid-template-columns: 1fr; }
+      .tip:nth-child(n) { border-right: none; border-bottom: 1px solid var(--tan-dark); }
+      .tip:last-child { border-bottom: none; }
+      .brands { padding: 1.6rem 2rem; }
+      .partner { padding: 3rem 2rem; }
+      .contact { padding: 5rem 2rem; }
+      footer { padding: 1.5rem 2rem; }
+    }
+    @media (max-width: 560px) {
+      .contact-row { grid-template-columns: 1fr; }
+      .service-photos { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -273,176 +446,199 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="logo">
-      <!-- Lightning bolt SVG approximating PHG mark -->
-      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M22 4 L10 20 H18 L14 32 L26 16 H18 Z" fill="#5a9628"/>
-        <path d="M22 4 L10 20 H18 L14 32 L26 16 H18 Z" fill="url(#grad)" opacity=".6"/>
-        <defs>
-          <linearGradient id="grad" x1="10" y1="4" x2="26" y2="32" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#a8d060"/>
-            <stop offset="100%" stop-color="#5a9628"/>
-          </linearGradient>
-        </defs>
-      </svg>
-      <span><em>PowerHouse</em> Generator</span>
-    </a>
-    <a href="tel:2489613647" class="cta">(248) 961-3647</a>
+    <a href="#"><img class="nav-logo" src="images/p1_img4_517x158.png" alt="PowerHouse Generator" /></a>
+    <a class="nav-phone" href="tel:2489613647">(248) 961-3647</a>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO — front cover panel -->
   <section class="hero">
-    <div class="badge">Whole-Home Standby Power</div>
-    <h1>Safe, steadfast protection<br><em>24/7</em></h1>
-    <p>With a generator from PowerHouse Generator you have the assurance you need when there is a power outage — winter, spring, summer, or fall.</p>
-    <div class="hero-actions">
-      <a href="tel:2489613647" class="btn-primary">Call Us Now</a>
-      <a href="https://www.powerhousegenerator.com" target="_blank" rel="noopener" class="btn-outline">Visit Our Website</a>
+    <div class="hero-left">
+      <span class="hero-eyebrow">Whole-Home Standby Power</span>
+      <h1>Safe, steadfast<br>protection <strong>24/7</strong></h1>
+      <p class="hero-body">With a generator from PowerHouse Generator you have the assurance you need when there is a power outage.</p>
+      <a class="hero-phone" href="tel:2489613647">(248) 961-3647</a>
+    </div>
+    <div class="hero-right">
+      <img src="images/p2_img8_946x2048.jpeg" alt="Technician installing generator" />
     </div>
   </section>
 
-  <!-- BRAND STRIP -->
+  <!-- BRAND LOGOS -->
   <div class="brands">
-    <span>We service</span>
-    <span class="brand-pill">Generac</span>
-    <span class="brand-pill">Briggs &amp; Stratton</span>
-    <span class="brand-pill">Kohler</span>
-    <span class="brand-pill">Honeywell</span>
+    <span class="brands-label">We service</span>
+    <img class="brand-logo" src="images/p1_img6_1200x720.png" alt="Briggs &amp; Stratton" />
+    <div class="brand-sep"></div>
+    <img class="brand-logo" src="images/p1_img8_274x184.png" alt="Kohler" style="height:28px;" />
+    <div class="brand-sep"></div>
+    <img class="brand-logo" src="images/p1_img7_2700x1552.png" alt="Generac" style="height:28px;" />
+    <div class="brand-sep"></div>
+    <span class="brands-label" style="letter-spacing:.06em; text-transform:none; font-size:.82rem; color: var(--muted);">Honeywell &amp; more</span>
   </div>
 
-  <!-- COMMITMENT -->
-  <section class="commitment">
-    <div class="container">
-      <div class="commitment-inner">
+  <!-- COMMITMENT — inside middle panel -->
+  <section class="section commitment">
+    <div class="section-inner">
+      <div class="commitment-grid">
+        <div class="commitment-photos">
+          <img src="images/p1_img1_1600x1600.jpeg" alt="Technician servicing generator" />
+          <img src="images/p2_img6_1600x1600.jpeg" alt="Technician kneeling at generator" />
+          <img src="images/p1_img5_1600x1600.jpeg" alt="Technician at electrical panel" />
+        </div>
         <div class="commitment-text">
-          <div class="section-label">Our Promise</div>
+          <span class="eyebrow">Our promise</span>
           <h2>Committed to your home &amp; family</h2>
-          <p>PowerHouse Generator is committed to you. We have outstanding electricians and plumbers who are equally committed to your home's protection, safety, and security.</p>
-          <p>Look at our website for additional tips and suggestions in our blog or quick videos to help navigate owning a whole-house generator.</p>
-          <p><strong>Here for you — always.</strong></p>
-        </div>
-        <div class="commitment-card">
-          <h3>Generators…<br>it's all we do.</h3>
-          <p>Ensuring that your generator is ready when you need it most will depend on how often your unit has run over the course of a year and how well it is maintained.</p>
-          <hr class="divider">
-          <p>Just like any other major appliance, regular service keeps your generator healthy, keeps your warranty valid, and extends the life of your unit.</p>
-          <hr class="divider">
-          <p class="tagline">We respect your property.</p>
+          <p class="body-text">PowerHouse Generator is committed to you. We have outstanding electricians and plumbers who are equally committed to your home's protection, safety, and security.</p>
+          <p class="body-text">Look at our website for additional tips and suggestions in our blog or quick videos to help navigate owning a whole-house generator.</p>
+          <div class="commitment-quote">
+            Here for you &mdash; always.
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="services">
-    <div class="container">
-      <div class="section-label">Protection During an Outage</div>
+  <!-- PROTECTION DURING AN OUTAGE — inside back panel -->
+  <section class="section protection" style="padding-bottom: 0;">
+    <div class="section-inner">
+      <span class="eyebrow">Protection During an Outage</span>
       <h2>Everything your generator needs</h2>
-      <p class="lead">Emergencies happen and the weather is unpredictable. Keeping your generator healthy is essential when maintaining steadfast power when you need it most.</p>
-      <div class="services-grid">
-
-        <div class="service-card accent-green">
-          <div class="service-icon icon-green">&#128295;</div>
+      <p class="section-intro">Emergencies happen and the weather is unpredictable. Keeping your generator healthy is essential when maintaining steadfast power when you need it most.</p>
+    </div>
+    <div style="max-width:1100px; margin: 0 auto;">
+      <!-- Annual Maintenance row -->
+      <div class="service-row">
+        <div class="service-text">
           <h3>Annual Maintenance</h3>
-          <p>Similar to maintaining the health of your car, your generator should be serviced annually. All home standby generators require yearly maintenance to ensure proper operation and longevity. Our trained technicians perform every facet of maintenance while identifying any potential issues.</p>
+          <p>Similar to maintaining the health of your car, your generator should be serviced annually. All home standby generators require yearly maintenance to ensure proper operation and longevity.</p>
+          <p style="margin-top:1rem;">Our team of technicians are trained to perform every facet of your generator's maintenance, while identifying any potential issues that need additional attention.</p>
         </div>
-
-        <div class="service-card accent-navy">
-          <div class="service-icon icon-navy">&#9889;</div>
+        <div class="service-photos">
+          <img src="images/p2_img6_1600x1600.jpeg" alt="Technician performing maintenance" />
+          <img src="images/p2_img5_1600x1600.jpeg" alt="Winter generator service" />
+        </div>
+      </div>
+      <!-- Emergency Service row -->
+      <div class="service-row">
+        <div class="service-photos">
+          <img src="images/p2_img7_1131x1131.jpeg" alt="Technician emergency service" />
+          <img src="images/p1_img1_1600x1600.jpeg" alt="Technician on-site service" />
+        </div>
+        <div class="service-text">
           <h3>Emergency Service</h3>
-          <p>Your generator may need additional attention if you notice it is underperforming. Over time, dirt can build up in filters, a battery may need replacing, or fuel levels need to be checked. Many things can happen — all can be taken care of with one call to PowerHouse Generator.</p>
+          <p>Your generator may need additional attention from time to time if you notice it is underperforming. Over time, dirt can build up in filters, a battery may need to be replaced, or fuel levels need to be checked and refilled.</p>
+          <p style="margin-top:1rem;">Many things can happen and all can be taken care of with one call to PowerHouse Generator to get you back on track.</p>
         </div>
-
-        <div class="service-card accent-gold">
-          <div class="service-icon icon-gold">&#127968;</div>
-          <h3>Safer Home, Increased Value</h3>
-          <p>Generators help reduce home insurance rates by reducing the risks of appliances breaking or frozen pipes bursting — especially for Michigan snowbirds. <em>"Generators are purchased as a backup to a power grid that is not functioning the way it should."</em> — DTE CEO, Jerry Norcia</p>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- TIPS -->
-  <section class="tips">
-    <div class="container">
-      <div class="section-label">Owner Tips</div>
-      <h2>Handy tips as a generator owner</h2>
-      <p class="lead">A few things to keep in mind to get the most out of your investment.</p>
-      <div class="tips-grid">
-
-        <div class="tip-card">
-          <h4>Listen for weekly tests</h4>
-          <p>Your generator should run every week on the same day and at the same time. If it is not, please call our office.</p>
-        </div>
-
-        <div class="tip-card">
-          <h4>Weekly testing is not optional</h4>
-          <p>Run time may vary. Daylight savings time affects the schedule when seasons change. If your generator is not running weekly, check first for error codes then call us for next steps.</p>
-        </div>
-
-        <div class="tip-card">
-          <h4>To lock or not to lock</h4>
-          <p>All generators come with a key to lock the top. This key is small and easily lost. Consider leaving it unlocked or marking your key and keeping it somewhere you'll easily remember.</p>
-        </div>
-
-        <div class="tip-card">
-          <h4>Extended outage oil top-off</h4>
-          <p>If your unit runs for 48 hours straight during a power outage you will need to top off oil. Use 5W30 full synthetic oil from any local auto parts store. Turn off your unit, wait ten minutes, then add oil.</p>
-        </div>
-
-      </div>
-
-      <div class="stop-banner">
-        <div class="stop-icon">&#9995;</div>
+  <!-- SAFER HOME — continues back panel -->
+  <section class="section safer" style="padding-top:0;">
+    <div class="section-inner" style="padding-top:4rem; border-top:1px solid rgba(255,255,255,.08);">
+      <div class="safer-inner">
         <div>
-          <h4>Stop — before you call</h4>
-          <p>If your generator needs attention or has an error code, take a look at our website first for quick reference guides and easy-to-follow videos. Doing so may save you the cost of a service call. Visit <a href="https://www.powerhousegenerator.com" target="_blank" rel="noopener" style="color:#b36a00;font-weight:600;">powerhousegenerator.com</a></p>
+          <h3 class="eyebrow" style="color:#a6c870; font-family:-apple-system,Helvetica,sans-serif;">Safer Home, Increased Value</h3>
+          <h2 style="color:white;">Your home is worth protecting</h2>
+          <p>Generators can also help you reduce home insurance rates because they reduce the risks of appliances breaking or frozen pipes bursting — especially for snowbirds of Michigan.</p>
+          <blockquote>"Generators are purchased as a backup to a power grid that is not functioning the way it should."<cite style="display:block; margin-top:.5rem; font-style:normal; font-size:.85rem;">— DTE CEO, Jerry Norcia</cite></blockquote>
+        </div>
+        <div class="safer-photo">
+          <img src="images/p2_img1_1131x1131.jpeg" alt="Installed Briggs &amp; Stratton generator" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PARTNER -->
-  <section class="partner">
-    <div class="container">
-      <div class="section-label">Community</div>
-      <h2>Giving back</h2>
-      <div class="partner-inner">
-        <div class="partner-logo">&#10084;&#65039;</div>
-        <div class="partner-text">
-          <h3>Proud partner of Our Daughters International</h3>
-          <p>A portion of every generator sold goes towards helping trafficked women find safety, healing, and education for a new life. To find out more, visit <a href="https://www.ourdaughtersinternational.org/" target="_blank" rel="noopener">ourdaughtersinternational.org</a>.</p>
+  <!-- TIPS — left inside panel -->
+  <section class="section tips">
+    <div class="section-inner">
+      <span class="eyebrow">Handy Tips</span>
+      <h2>As a generator owner</h2>
+      <div class="tips-grid">
+        <div class="tip">
+          <span class="tip-num">01</span>
+          <h4>Listen for weekly tests</h4>
+          <p>Your generator should run every week on the same day and at the same time. Daylight savings time affects the schedule when seasons change. If it is not running, please call our office.</p>
+        </div>
+        <div class="tip">
+          <span class="tip-num">02</span>
+          <h4>Weekly testing is not optional</h4>
+          <p>Your generator should be testing every week. If it is not running weekly, check first for error codes then call us for next steps. Run time may vary.</p>
+        </div>
+        <div class="tip">
+          <span class="tip-num">03</span>
+          <h4>To lock or not to lock</h4>
+          <p>All generators come with a key to lock the top. This key is small and easily lost. Consider leaving it unlocked or marking your key and keeping it in a place you'll easily remember.</p>
+        </div>
+        <div class="tip">
+          <span class="tip-num">04</span>
+          <h4>Extended outage — top off oil</h4>
+          <p>If your unit runs for 48 hours straight you will need to top off oil. Use 5W30 full synthetic oil from any local auto parts store. Turn off your unit, wait ten minutes, then add oil.</p>
+        </div>
+      </div>
+      <div class="stop-block">
+        <div class="stop-hand">&#9995;</div>
+        <div>
+          <h4>Before you call — check the website</h4>
+          <p>If your generator needs attention or has an error code, take a look at <a href="https://www.powerhousegenerator.com" target="_blank" rel="noopener">powerhousegenerator.com</a> for quick reference guides and easy-to-follow videos first. Doing so may save you the cost of a service call.</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- INSTALLED UNITS — back left panel -->
+  <section class="section installed">
+    <div class="section-inner">
+      <span class="eyebrow">Our Work</span>
+      <h2>Generators installed across Michigan</h2>
+      <div class="installed-grid">
+        <img src="images/p2_img3_1024x1024.jpeg" alt="Generator installation in progress" />
+        <img src="images/p2_img1_1131x1131.jpeg" alt="Installed generator at home" />
+        <div class="installed-info">
+          <p>Generac, Briggs &amp; Stratton, Kohler, Honeywell &mdash; we service what you have.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR DAUGHTERS INTERNATIONAL -->
+  <div class="partner">
+    <div class="partner-inner">
+      <div>
+        <h3>Proud partner of Our Daughters International</h3>
+        <p>PHG is a proud partner of Our Daughters International. A portion of every generator sold goes towards helping trafficked women find safety, healing, and education for a new life. To find out more, visit <a href="https://www.ourdaughtersinternational.org/" target="_blank" rel="noopener">ourdaughtersinternational.org</a>.</p>
+      </div>
+      <div class="partner-aside">
+        <div class="stat">Every</div>
+        <div class="stat-label">generator sold gives back</div>
+      </div>
+    </div>
+  </div>
 
   <!-- CONTACT -->
   <section class="contact">
-    <div class="container">
-      <div class="section-label" style="color:#a8d060;">Get in Touch</div>
-      <h2>Call anytime with questions<br>or concerns</h2>
-      <p class="lead">Our team is standing by. Service year round.</p>
-      <div class="contact-cards">
-        <div class="contact-card">
+    <div class="contact-inner">
+      <span class="eyebrow">Get in Touch</span>
+      <h2>Call anytime with questions or concerns</h2>
+      <div class="contact-row">
+        <div class="contact-item">
           <div class="label">Cell</div>
           <div class="value"><a href="tel:2489613647">(248) 961-3647</a></div>
         </div>
-        <div class="contact-card">
+        <div class="contact-item">
           <div class="label">Office</div>
           <div class="value"><a href="tel:2482665597">(248) 266-5597</a></div>
         </div>
-        <div class="contact-card">
+        <div class="contact-item">
           <div class="label">Website</div>
           <div class="value"><a href="https://www.powerhousegenerator.com" target="_blank" rel="noopener">powerhousegenerator.com</a></div>
         </div>
-        <div class="contact-card">
+        <div class="contact-item">
           <div class="label">Owner</div>
           <div class="value">Mitch Mountney</div>
         </div>
       </div>
-      <div class="google-badge">
+      <div class="google-line">
         <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         Excellent reviews on Google
       </div>
@@ -451,7 +647,12 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 PowerHouse Generator &mdash; <a href="https://exceptionraiser.github.io/powerhousegenerators-legal/privacy-policy.html">Privacy Policy</a> &middot; <a href="https://exceptionraiser.github.io/powerhousegenerators-legal/terms-of-service.html">Terms of Service</a></p>
+    <span>&copy; 2025 PowerHouse Generator</span>
+    <span>
+      <a href="https://exceptionraiser.github.io/powerhousegenerators-legal/privacy-policy.html">Privacy Policy</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://exceptionraiser.github.io/powerhousegenerators-legal/terms-of-service.html">Terms of Service</a>
+    </span>
   </footer>
 
 </body>
